@@ -1,0 +1,17 @@
+# Rust build output
+/target/
+
+# macOS
+.DS_Store
+
+# Runtime progress / checkpoints (can be huge)
+lychrel_progress/
+lychrel_progress_*/
+**/current_number.txt
+**/progress.txt
+**/run_log.txt
+
+# Background run logs
+run_stdout.txt
+nohup.out
+*.log
