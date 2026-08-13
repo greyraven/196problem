@@ -1,4 +1,4 @@
-# lychrel196
+# The 196 Problem
 
 A Mac-friendly Rust engine for the **196 Lychrel / palindrome quest**: repeatedly reverse the digits of a number and add, looking for a palindrome.
 
@@ -6,6 +6,22 @@ Most starting numbers eventually become palindromes. **196** is the smallest can
 
 Home of the broader quest and records: **[p196.org](https://www.p196.org/)**  
 Verification table used here: **[p196.org verification](https://www.p196.org/html/verification.html)**
+
+## Background
+
+I have always been into numbers, as a child with some OCD of counting the cracks in the sidewalk or counting telephone poles when I was in the backseat of my parents car. When I heard about Palindromic numbers later in my life I became obsessed with understanding how a number could result in a palindrome 100s of steps out and how some could do it with 1 or 2 steps. When I learned about unresolved numbers (called **Lychrel**) I felt compelled to figure it out. I didn't have a supercomputer, this was 2013 and people had already gotten it up over a billion. Computers back then couldn't do as much as they can now. So in 2026, I went to the p196 site which is a great history of the effort and I noticed it hadn't really been maintained. 
+
+Everyone had apparently given up. It is probably the best honestly. I don't really have hope that we'll resolve it. We have to accept that some numbers never resolve palindromicly (is that a word?) and that's the way it works. But I have a nice machine now with 28 cores and M4 architecture. I think I got it to over 20 million digits in the first few days. The record I think is 2.5 billion (Maybe someone has done more and not published). I did 20 million in a few days. Some of you guys have monster rigs and can do even more than I can. I wanted to share my code so someone else can maybe solve this or not solve it.
+
+The bigger question is not why 196 can't be resolved. It's the determination if there is a pattern of numbers that don't resolve and what are the significance of those numbers as a whole? Is there a predictable pattern of numbers that never resolve. Can we predict future Lychrel numbers we haven't tried yet? Technically, every number in the 196 "problem" is a Lychrel number. Those numbers chain through the ether as unicorns. Never to know their mirror. Ok, I digress.
+
+Thanks to all those folks to tried and failed before me. We are bound by our failure but in trying we are on the battlefield. Imagine if we actually solve it?!?! Just one more iteration...
+
+---
+
+## Reporting
+
+If you have have checkpoints beyond 2 billion please consider adding it to the checkpoint directory here. See the format of the existing ones.
 
 ---
 
