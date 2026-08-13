@@ -19,9 +19,13 @@ Thanks to all those folks to tried and failed before me. We are bound by our fai
 
 ---
 
-## Reporting
+## Reporting checkpoints
 
-If you have have checkpoints beyond 2 billion please consider adding it to the checkpoint directory here. See the format of the existing ones.
+Have a new milestone (or a full-number seed others can resume from)?
+
+Add it under [`checkpoints/`](checkpoints/) — start with [`checkpoints/README.md`](checkpoints/README.md) for the format, then copy [`checkpoints/submissions/TEMPLATE.md`](checkpoints/submissions/TEMPLATE.md) and open a PR.
+
+Known p196.org fingerprints live in `checkpoints/known/`. The master list is `checkpoints/INDEX.csv`.
 
 ---
 
