@@ -1,0 +1,4 @@
+Loaded 246 verification checkpoints from p196.org data.
+Starting fresh from 196
+Snippet checkpoints every 5s; full number every 1000000 iterations.
+  iter 134284 | 55691 digits | 5s | mod9 4   
