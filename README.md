@@ -9,6 +9,8 @@ Verification table used here: **[p196.org verification](https://www.p196.org/htm
 
 ## Background
 
+![196 palindrome quest illustration](illustration.jpg)
+
 I have always been into numbers, as a child with some OCD of counting the cracks in the sidewalk or counting telephone poles when I was in the backseat of my parents car. When I heard about Palindromic numbers later in my life I became obsessed with understanding how a number could result in a palindrome 100s of steps out and how some could do it with 1 or 2 steps. When I learned about unresolved numbers (called **Lychrel**) I felt compelled to figure it out. I didn't have a supercomputer, this was 2013 and people had already gotten it up over a billion. Computers back then couldn't do as much as they can now. So in 2026, I went to the p196 site which is a great history of the effort and I noticed it hadn't really been maintained. 
 
 Everyone had apparently given up. It is probably the best honestly. I don't really have hope that we'll resolve it. We have to accept that some numbers never resolve palindromicly (is that a word?) and that's the way it works. But I have a nice machine now with 28 cores and M4 architecture. I think I got it to over 20 million digits in the first few days. The record I think is 2.5 billion (Maybe someone has done more and not published). I did 20 million in a few days. Some of you guys have monster rigs and can do even more than I can. I wanted to share my code so someone else can maybe solve this or not solve it.
@@ -26,6 +28,14 @@ Have a new milestone (or a full-number seed others can resume from)?
 Add it under [`checkpoints/`](checkpoints/) — start with [`checkpoints/README.md`](checkpoints/README.md) for the format, then copy [`checkpoints/submissions/TEMPLATE.md`](checkpoints/submissions/TEMPLATE.md) and open a PR.
 
 Known p196.org fingerprints live in `checkpoints/known/`. The master list is `checkpoints/INDEX.csv`.
+
+## Discussions
+
+Want to talk ideas (faster search, distributed runs, Lychrel patterns)?
+
+Use the **Discussions** tab — see [`DISCUSSIONS.md`](DISCUSSIONS.md) for what we’re focusing on:
+
+https://github.com/greyraven/196problem/discussions
 
 ---
 
