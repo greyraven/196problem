@@ -23,9 +23,15 @@ use std::io::Write;
 use std::path::{Path, PathBuf};
 use std::time::Instant;
 
+use chrono::Local;
 use rayon::prelude::*;
 
 const VERIFICATION_CSV: &str = include_str!("../verification.csv");
+
+/// Local wall-clock stamp for event lines (e.g. 2026-08-17 15:42:01).
+fn local_timestamp() -> String {
+    Local::now().format("%Y-%m-%d %H:%M:%S").to_string()
+}
 
 struct Checkpoint {
     digit_count: u64,
@@ -692,13 +698,13 @@ fn main() {
                 let ours = first_n(&digits, 25);
                 if target.iteration == iteration && ours == target.first_25 {
                     println!(
-                        "\n[VERIFIED] {} digits @ iteration {} matches p196.org exactly.",
-                        target.digit_count, iteration
+                        "\n[{}] [VERIFIED] {} digits @ iteration {} matches p196.org exactly.",
+                        local_timestamp(), target.digit_count, iteration
                     );
                 } else {
                     println!(
-                        "\n[MISMATCH] at {} digits: iteration ours={} theirs={}, first25 ours={} theirs={}",
-                        target.digit_count, iteration, target.iteration, ours, target.first_25
+                        "\n[{}] [MISMATCH] at {} digits: iteration ours={} theirs={}, first25 ours={} theirs={}",
+                        local_timestamp(), target.digit_count, iteration, target.iteration, ours, target.first_25
                     );
                 }
                 next_check_idx += 1;
@@ -716,8 +722,8 @@ fn main() {
                 .expect("full checkpoint save failed");
             full_save_iteration = iteration;
             eprintln!(
-                "\n[FULL SAVE] iteration {} | {} digits | {:.0}s",
-                iteration, digits.len(), elapsed
+                "\n[{}] [FULL SAVE] iteration {} | {} digits | {:.0}s",
+                local_timestamp(), iteration, digits.len(), elapsed
             );
         }
 
@@ -732,23 +738,23 @@ fn main() {
             let first20 = first_n(&digits, 20);
             let last20 = last_n(&digits, 20);
             let log_line = format!(
-                "iter={} digits={} elapsed={:.1}s mod9={} first20={} last20={}",
-                iteration, digit_count, elapsed, actual_mod9, first20, last20
+                "[{}] iter={} digits={} elapsed={:.1}s mod9={} first20={} last20={}",
+                local_timestamp(), iteration, digit_count, elapsed, actual_mod9, first20, last20
             );
             append_log(&checkpoint_dir, &log_line).expect("log write failed");
 
             eprint!(
-                "\r  iter {} | {} digits | {:.0}s | mod9 {}{}   ",
-                iteration, digit_count, elapsed, actual_mod9,
+                "\r[{}] iter {} | {} digits | {:.0}s | mod9 {}{}   ",
+                local_timestamp(), iteration, digit_count, elapsed, actual_mod9,
                 if integrity_ok { "" } else { " <-- INTEGRITY CHECK FAILED" }
             );
             std::io::stderr().flush().ok();
 
             if !integrity_ok {
                 eprintln!(
-                    "\n\nINTEGRITY CHECK FAILED at iteration {}: expected digit-sum mod 9 = {}, got {}. \
+                    "\n\n[{}] INTEGRITY CHECK FAILED at iteration {}: expected digit-sum mod 9 = {}, got {}. \
                      This means there is a bug in the addition step -- stopping.",
-                    iteration, predicted_mod9, actual_mod9
+                    local_timestamp(), iteration, predicted_mod9, actual_mod9
                 );
                 let progress = make_progress(
                     &digits, iteration, elapsed, &start_number, c0_mod9,
